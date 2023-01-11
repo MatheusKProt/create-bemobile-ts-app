@@ -1,16 +1,25 @@
 {
   "name": "create-bemobile-ts-app",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Boilerplate to create a new Bemobile typescript project",
   "main": "build/index.js",
   "repository": "https://github.com/MatheusKProt/create-bemobile-ts-app.git",
   "author": "MatheusKProt <matheus@bemobile.tech>",
   "license": "MIT",
+  "files": [
+    "build/bin",
+    "build/src",
+    "build/tasks",
+    "build/template",
+    "build/index.d.ts",
+    "build/index.js"
+  ],
   "scripts": {
     "dev": "npx nodemon ./bin/run.ts",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "build": "tsc --build --clean && tsc",
+    "build": "yarn lint && del build && tsc && copyfiles \"template/**/*\" build && yarn eolConverter \"build/**/*\"",
+    "version": "yarn build",
     "deploy:main": "git checkout main && git merge develop && git checkout develop"
   },
   "bin": {
@@ -21,12 +30,19 @@
       "pre-commit": "yarn prettier --write $(git --no-pager diff HEAD --name-only --cached --diff-filter=d -- \"*.ts\" \"*.js\" \"*.json\") && yarn eslint --max-warnings=0 --fix $(git --no-pager diff HEAD --name-only --cached --diff-filter=d -- \"*.ts\") && yarn tsc --noEmit"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",
     "@types/gradient-string": "^1.1.2",
+    "@types/mustache": "^4.2.2",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.48.0",
+    "copyfiles": "^2.4.1",
+    "eol-converter-cli": "^1.0.8",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard-with-typescript": "^26.0.0",
@@ -45,7 +61,6 @@
   "dependencies": {
     "@poppinss/cliui": "^3.0.5",
     "@poppinss/utils": "^5.0.0",
-    "@types/mustache": "^4.2.2",
     "chalk": "4.1.2",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0",
