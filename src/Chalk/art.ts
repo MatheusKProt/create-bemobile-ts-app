@@ -5,4 +5,4 @@ const art = Buffer.from(
   'base64'
 ).toString()
 
-export const showArt = () => console.log(gradient.pastel.multiline(art))
+export const showArt = () => console.log(gradient(['#0C479A', '#5984C0', '#B2CEF5']).multiline(art))
