@@ -1,0 +1,57 @@
+{
+  "name": "create-bemobile-ts-app",
+  "version": "0.0.2",
+  "description": "Boilerplate to create a new Bemobile typescript project",
+  "main": "build/index.js",
+  "repository": "https://github.com/MatheusKProt/create-bemobile-ts-app.git",
+  "author": "MatheusKProt <matheus@bemobile.tech>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx nodemon ./bin/run.ts",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "build": "tsc --build --clean && tsc",
+    "deploy:main": "git checkout main && git merge develop && git checkout develop"
+  },
+  "bin": {
+    "create-bemobile-ts-app": "build/bin/run.js"
+  },
+  "git": {
+    "scripts": {
+      "pre-commit": "yarn prettier --write $(git --no-pager diff HEAD --name-only --cached --diff-filter=d -- \"*.ts\" \"*.js\" \"*.json\") && yarn eslint --max-warnings=0 --fix $(git --no-pager diff HEAD --name-only --cached --diff-filter=d -- \"*.ts\") && yarn tsc --noEmit"
+    }
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/gradient-string": "^1.1.2",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^26.0.0",
+    "eslint-plugin-adonis": "^2.1.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "git-commit-msg-linter": "^4.5.0",
+    "git-scripts": "^0.6.4",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.2",
+    "ts-node": "^10.9.1",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "@poppinss/cliui": "^3.0.5",
+    "@poppinss/utils": "^5.0.0",
+    "@types/mustache": "^4.2.2",
+    "chalk": "4.1.2",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.0",
+    "getopts": "^2.3.0",
+    "gradient-string": "^2.0.2",
+    "mrm-core": "^7.1.13",
+    "mustache": "^4.2.0"
+  }
+}
