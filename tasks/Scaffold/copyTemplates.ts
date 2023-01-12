@@ -10,6 +10,7 @@ const task: TaskFn = (state) => {
   const templateFiles = fsReadAll(baseDir, () => true)
 
   const dictNames = {
+    'env': '.env',
     'editorconfig': '.editorconfig',
     'eslintignore': '.eslintignore',
     'eslintrc.json': '.eslintrc.json',
