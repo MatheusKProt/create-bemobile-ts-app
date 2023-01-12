@@ -1,9 +1,7 @@
 {
-  "name": "typescript-nodejs-boilerplate",
+  "name": "Bemobile Application",
   "version": "1.0.0",
   "main": "src/index.ts",
-  "repository": "https://github.com/MatheusKProt/typescript-nodejs-boilerplate.git",
-  "author": "MatheusKProt <matheus@bemobile.tech>",
   "license": "MIT",
   "scripts": {
     "dev": "npx nodemon ./src/index.ts",
