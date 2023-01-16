@@ -1,6 +1,6 @@
 {
   "name": "create-bemobile-ts-app",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Boilerplate to create a new Bemobile typescript project",
   "main": "build/index.js",
   "repository": "https://github.com/MatheusKProt/create-bemobile-ts-app.git",

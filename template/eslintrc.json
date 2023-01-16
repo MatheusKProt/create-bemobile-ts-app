@@ -40,6 +40,8 @@
         "allow": ["refresh_token"]
       }
     ],
-    "@typescript-eslint/no-explicit-any": ["error"]
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "@typescript-eslint/no-floating-promises": ["error"],
+    "no-await-in-loop": ["error"]
   }
 }
